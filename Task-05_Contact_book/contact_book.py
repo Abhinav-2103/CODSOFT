@@ -47,33 +47,44 @@ def clear_entries():
 
 root = tk.Tk()
 root.title("Contact Book")
+root.geometry("550x400")
+root.configure(bg="beige")
 root.resizable(False, False)
 
-tk.Label(root, text="Name").grid(row=0, column=0)
-name_entry = tk.Entry(root)
-name_entry.grid(row=0, column=1)
+label_fg = "darkgreen"
+btn_add_color = "#4CAF50"
+btn_delete_color = "#F44336"
+btn_clear_color = "#9E9E9E"
+btn_search_color = "#2196F3"
 
-tk.Label(root, text="Phone").grid(row=1, column=0)
-phone_entry = tk.Entry(root)
-phone_entry.grid(row=1, column=1)
+tk.Label(root, text="Contact Book", bg="beige", fg="black", font=("futura", 18, "bold")).pack(pady=10)
 
-tk.Label(root, text="Email").grid(row=2, column=0)
-email_entry = tk.Entry(root)
-email_entry.grid(row=2, column=1)
+tk.Label(root, text="Name", bg="beige", fg=label_fg, font=("ubuntu", 11)).place(x=30, y=60)
+name_entry = tk.Entry(root, font=("ubuntu", 10))
+name_entry.place(x=150, y=60)
 
-tk.Label(root, text="Address").grid(row=3, column=0)
-address_entry = tk.Entry(root)
-address_entry.grid(row=3, column=1)
+tk.Label(root, text="Phone", bg="beige", fg=label_fg, font=("ubuntu", 11)).place(x=30, y=90)
+phone_entry = tk.Entry(root, font=("ubuntu", 10))
+phone_entry.place(x=150, y=90)
 
-tk.Button(root, text="Add Contact", command=add_contact).grid(row=4, column=0, pady=5)
-tk.Button(root, text="Delete Contact", command=delete_contact).grid(row=4, column=1, pady=5)
+tk.Label(root, text="Email", bg="beige", fg=label_fg, font=("ubuntu", 11)).place(x=30, y=120)
+email_entry = tk.Entry(root, font=("ubuntu", 10))
+email_entry.place(x=150, y=120)
 
-tk.Label(root, text="Search").grid(row=5, column=0)
-search_entry = tk.Entry(root)
-search_entry.grid(row=5, column=1)
-tk.Button(root, text="Search", command=search_contact).grid(row=5, column=2)
+tk.Label(root, text="Address", bg="beige", fg=label_fg, font=("ubuntu", 11)).place(x=30, y=150)
+address_entry = tk.Entry(root, font=("ubuntu", 10))
+address_entry.place(x=150, y=150)
 
-contact_list = tk.Listbox(root, width=50)
-contact_list.grid(row=6, column=0, columnspan=3, pady=10)
+tk.Button(root, text="Add Contact", command=add_contact, bg=btn_add_color, fg="white", font=("ubuntu", 10)).place(x=50, y=190)
+tk.Button(root, text="Delete Contact", command=delete_contact, bg=btn_delete_color, fg="white", font=("ubuntu", 10)).place(x=160, y=190)
+tk.Button(root, text="Clear Fields", command=clear_entries, bg=btn_clear_color, fg="white", font=("ubuntu", 10)).place(x=280, y=190)
+
+tk.Label(root, text="Search", bg="beige", fg=label_fg, font=("ubuntu", 11)).place(x=30, y=230)
+search_entry = tk.Entry(root, font=("ubuntu", 10))
+search_entry.place(x=150, y=230)
+tk.Button(root, text="Search", command=search_contact, bg=btn_search_color, fg="white", font=("ubuntu", 10)).place(x=330, y=226)
+
+contact_list = tk.Listbox(root, width=60, height=8, bg="white", fg="black", font=("ubuntu", 10))
+contact_list.place(x=30, y=270)
 
 root.mainloop()
