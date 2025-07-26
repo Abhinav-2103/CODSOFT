@@ -27,4 +27,4 @@ This is a simple and secure Password Generator written in Python. It allows user
 
 ## How to Run
 
-python password_gui.py
+python password.py
